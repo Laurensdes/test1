@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slideshow met knoppen</title>
+  </head>
+  <body>
+    <div id="slideshow">
+        
+            <img src="1.jpeg" alt="Afbeelding 1" style="width:500px;height:600px " >
+            <img src="2.webp" alt="Afbeelding 2" style="width:500px;height:600px" >
+            <img src="4.jpeg" alt="Afbeelding 3" style="width:500px;height:600px" >
+            <button id="prevButton">Vorige</button>
+            <button id="nextButton">Volgende</button>
+          </div>
+          <script>
+            const slideshow = document.getElementById("slideshow");
+            const images = slideshow.getElementsByTagName("img");
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
+            let currentImage = 0;
+          
+            // Verberg alle afbeeldingen, behalve de eerste.
+            for (let i = 1; i < images.length; i++) {
+              images[i].style.display = "none";
+            }
+          
+            // Voeg event listeners toe aan de knoppen.
+            prevButton.addEventListener("click", () => {
+              images[currentImage].style.display = "none";
+              currentImage--;
+              if (currentImage < 0) {
+                currentImage = images.length - 1;
+              }
+              images[currentImage].style.display = "block";
+            });
+          
+            nextButton.addEventListener("click", () => {
+              images[currentImage].style.display = "none";
+              currentImage++;
+              if (currentImage >= images.length) {
+                currentImage = 0;
+              }
+              images[currentImage].style.display = "block";
+            });
+          </script>
+          
+          
+          
+          
+                    
+  </body>
+</html>
